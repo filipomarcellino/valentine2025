@@ -12,9 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Using dynamic viewport height for mobile devices (Option 1) */
-  height: 100dvh;
-  overflow: hidden; /* Hide scrollbars if needed */
+  min-height: 100dvh;  /* Allows scrolling when needed */
+  overflow-y: auto; /* Enables vertical scrolling */
 }
 
 /* 2) CONTAINER STYLING */
@@ -27,9 +26,10 @@ body {
   padding: 20px;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  
-  /* Wild/Quirky animation on initial load */
-  animation: swirlIn 1s ease forwards;
+
+  /* Allow space for scrolling */
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* Title & Countdown Number */
@@ -46,6 +46,12 @@ body {
 }
 
 /* 3) MEDIA ELEMENTS */
+#reason-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 /* Image Styling */
 #reason-image {
@@ -57,7 +63,7 @@ body {
   margin: 20px 0;
 }
 
-/* Video Styling (if you later switch to a video element) */
+/* Video Styling */
 #reason-media video {
   width: 100%;
   max-width: 300px;
@@ -77,30 +83,26 @@ body {
 
 /* 4) TRANSITIONS & ANIMATIONS */
 .hidden {
-  animation: swirlOut 0.6s ease forwards;
+  animation: fadeOut 0.6s ease forwards;
 }
 
-/* Swirl in animation */
-@keyframes swirlIn {
+/* Fade Out Animation */
+@keyframes fadeOut {
   0% {
-    transform: rotate(-360deg) scale(0.1);
-    opacity: 0;
-  }
-  100% {
-    transform: rotate(0deg) scale(1);
-    opacity: 1;
-  }
-}
-
-/* Swirl out animation */
-@keyframes swirlOut {
-  0% {
-    transform: rotate(0deg) scale(1);
     opacity: 1;
   }
   100% {
-    transform: rotate(360deg) scale(0.1);
     opacity: 0;
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -116,7 +118,7 @@ body {
   max-width: 300px;
   border-radius: 8px;
   margin-bottom: 20px;
-  animation: swirlIn 1s ease forwards;
+  animation: fadeIn 1s ease forwards;
 }
 
 .valentine-btn {
@@ -136,11 +138,12 @@ body {
 }
 
 /* 6) MOBILE RESPONSIVENESS */
-/* Adjust styles for smaller screens (e.g., iPhone 15 Pro) */
 @media only screen and (max-width: 480px) {
   .container {
     width: 95%;
     padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   #title {
     font-size: 2rem;
