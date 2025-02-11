@@ -27,9 +27,8 @@ body {
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 
-  /* Allow space for scrolling */
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* Wild/Quirky animation on initial load */
+  animation: swirlIn 1s ease forwards;
 }
 
 /* Title & Countdown Number */
@@ -46,12 +45,6 @@ body {
 }
 
 /* 3) MEDIA ELEMENTS */
-#reason-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 /* Image Styling */
 #reason-image {
@@ -63,7 +56,7 @@ body {
   margin: 20px 0;
 }
 
-/* Video Styling */
+/* Video Styling (if you later switch to a video element) */
 #reason-media video {
   width: 100%;
   max-width: 300px;
@@ -83,26 +76,30 @@ body {
 
 /* 4) TRANSITIONS & ANIMATIONS */
 .hidden {
-  animation: fadeOut 0.6s ease forwards;
+  animation: swirlOut 0.6s ease forwards;
 }
 
-/* Fade Out Animation */
-@keyframes fadeOut {
+/* Swirl in animation */
+@keyframes swirlIn {
   0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-/* Fade In Animation */
-@keyframes fadeIn {
-  0% {
+    transform: rotate(-360deg) scale(0.1);
     opacity: 0;
   }
   100% {
+    transform: rotate(0deg) scale(1);
     opacity: 1;
+  }
+}
+
+/* Swirl out animation */
+@keyframes swirlOut {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(0.1);
+    opacity: 0;
   }
 }
 
@@ -118,7 +115,7 @@ body {
   max-width: 300px;
   border-radius: 8px;
   margin-bottom: 20px;
-  animation: fadeIn 1s ease forwards;
+  animation: swirlIn 1s ease forwards;
 }
 
 .valentine-btn {
@@ -138,12 +135,11 @@ body {
 }
 
 /* 6) MOBILE RESPONSIVENESS */
+/* Adjust styles for smaller screens (e.g., iPhone 15 Pro) */
 @media only screen and (max-width: 480px) {
   .container {
     width: 95%;
     padding: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
   #title {
     font-size: 2rem;
@@ -171,4 +167,23 @@ body {
     padding: 10px 20px;
     font-size: 1rem;
   }
+}
+
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #9c27b0;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Dancing Script", cursive;
+  transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+  background: #7b1fa2;
 }
