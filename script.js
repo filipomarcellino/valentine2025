@@ -185,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Play music when user clicks
       playButton.addEventListener("click", () => {
         audio.play();
-        playButton.remove(); // Remove button after playing
       });
     });
   }
