@@ -57,7 +57,7 @@ const reasons = [
     {
     number: 1,
     text: "You make life worth living. Every moment we share together becomes twice as lovely when spent with you. <3",
-    media: "pictures/IMG_4621.MP4",
+    media: "pictures/IMG_4621.mp4",
     mediaType: "video"
   },
 ];
