@@ -12,7 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* Using dynamic viewport height for mobile devices (Option 1) */
+  height: 100dvh;
   overflow: hidden; /* Hide scrollbars if needed */
 }
 
@@ -26,7 +27,7 @@ body {
   padding: 20px;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-
+  
   /* Wild/Quirky animation on initial load */
   animation: swirlIn 1s ease forwards;
 }
@@ -167,23 +168,4 @@ body {
     padding: 10px 20px;
     font-size: 1rem;
   }
-}
-
-.music-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #9c27b0;
-  color: white;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: "Dancing Script", cursive;
-  transition: all 0.3s ease;
-}
-
-.music-btn:hover {
-  background: #7b1fa2;
 }
