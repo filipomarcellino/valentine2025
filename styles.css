@@ -11,9 +11,12 @@ body {
   color: #4a148c; /* Deep purple text */
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* Remove vertical centering: use flex-start */
+  align-items: flex-start;
   min-height: 100dvh;  /* Allows scrolling when needed */
   overflow-y: auto; /* Enables vertical scrolling */
+  padding-top: 20px; /* Optional: adds some breathing room at the top */
+  padding-bottom: 20px; /* Optional: adds space at the bottom */
 }
 
 /* 2) CONTAINER STYLING */
